@@ -34,11 +34,25 @@ list2=d2['H1'].values.tolist()
 #print(list1)
 #print([x for x in list2 if x in list1])
 j = 0
+k = []
 for i in range(0,d.iloc[:,0].size):
     #list1 = []
     list1 = d['H1'].values[i].split(';')
     tmp = [x for x in list2 if x in list1]
     #print("patent "+ str(i+1) + " citation = " + str(len(tmp)))
+    k.append(str(len(tmp)))
     j = j + len(tmp)
 print("total citation = " + str(j))
+print(k)
+list2=k
+filename = r'/Users/kun/Desktop/Citation/all.txt'
+data = list2
+file = open(filename,'a+')
+for i in range(len(data)):
+    s = str(data[i]).replace('[','').replace(']','')
+    s = s.replace("'",'').replace(',','') +'\t'
+    file.write(s)
+file.write('\n')
+file.close()
+print("保存文件成功")
 #print(d['Sheet1'])
