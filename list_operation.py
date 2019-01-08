@@ -1,8 +1,11 @@
 #-*- coding: utf-8 -*-
+#判断两个列表的交集和并集
 import pandas as pd
 import xlrd
 import numpy as np
-excel_path =r'/Users/kun/Desktop/Citation/patent3.xlsx'
+#excel_path =r'/Users/kun/Desktop/Citation/patent3.xlsx'
+#当前路径
+excel_path =r'patent3.xlsx'
 d1 = pd.read_excel(excel_path, header=0, index_col=None, na_values='NULL',dtype=str,sheet_name='Sheet1')
 d2 = pd.read_excel(excel_path, header=0, index_col=None, na_values='NULL',dtype=str,sheet_name='Sheet2')
 #d.columns = ['a']
@@ -53,7 +56,9 @@ k = list(set(list2).difference(set(list1)))
 
 print(k)
 list2=k
-filename = r'/Users/kun/Desktop/Citation/k1.txt'
+#filename = r'/Users/kun/Desktop/Citation/k1.txt'
+#当前路径 写入list数据导本地文件
+filename = r'k1.txt'
 data = list2
 file = open(filename,'a+')
 for i in range(len(data)):
