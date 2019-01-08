@@ -3,7 +3,10 @@ list2=[1,2,3,4,5]
 #filename = r'/Users/kun/Desktop/Citation/list.txt'
 filename = r'list.txt'
 data = list2
-file = open(filename,'a+')
+#追加写入
+# file = open(filename,'a+')
+#写入
+file = open(filename,'w+')
 for i in range(len(data)):
     s = str(data[i]).replace('[','').replace(']','')
     s = s.replace("'",'').replace(',','') +'\t'
