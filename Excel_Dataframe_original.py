@@ -4,7 +4,8 @@ import pandas as pd
 import xlrd
 import numpy as np
 #excel_path =r'/Users/kun/Desktop/Citation/patent1.xlsx'
-excel_path =r'patent1.xlsx'
+#excel_path =r'patent1.xlsx'
+excel_path =r'patent_original.xlsx'
 d = pd.read_excel(excel_path, header=0, index_col=None, na_values='NULL',dtype=str,sheet_name='Sheet1')
 d2 = pd.read_excel(excel_path, header=0, index_col=None, na_values='NULL',dtype=str,sheet_name='Sheet2')
 #d.columns = ['a']
@@ -44,19 +45,23 @@ for i in range(0,d.iloc[:,0].size):
     #print("patent "+ str(i+1) + " citation = " + str(len(tmp)))
     k.append(str(len(tmp)))
     j = j + len(tmp)
+    print("citation"+str(i+1)+" = " + str(len(tmp)))
 print("total citation = " + str(j))
-print(k)
+#print(k)
 
 #写入列表到文件
 list2=k
 #filename = r'/Users/kun/Desktop/Citation/all.txt'
-filename = r'all.txt'
+#filename = r'all.txt'
+filename = r'original.txt'
 data = list2
 file = open(filename,'a+')
 for i in range(len(data)):
     s = str(data[i]).replace('[','').replace(']','')
     s = s.replace("'",'').replace(',','') +'\t'#按行写入
     file.write(s)
+    #列写入
+    file.write('\n')
 file.write('\n')
 file.close()
 print("保存文件成功")
